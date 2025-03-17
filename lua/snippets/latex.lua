@@ -17,6 +17,7 @@ vim.keymap.set({ "i", "s" }, "<A-j>", function()
     end
 end, { silent = true })
 
+-- Add image block
 ls.add_snippets("tex", {
     s("img", fmt([[
         \begin{{figure}}[H]
@@ -30,6 +31,7 @@ ls.add_snippets("tex", {
     ))
 })
 
+-- Add code block
 ls.add_snippets("tex", {
     s("code", fmt([[
         \begin{{lstlisting}} [language={1}]
@@ -39,4 +41,43 @@ ls.add_snippets("tex", {
         i(1, "c"), i(2)
     }
     ))
+})
+
+-- Quality of life snippets
+ls.add_snippets("tex", {
+    s("it", fmt([[
+        \textit{{{1}}}{2}
+    ]], {
+        i(1), i(2)
+    }))
+})
+
+ls.add_snippets("tex", {
+    s("bd", fmt([[
+        \textbf{{{1}}}{2}
+    ]], {
+        i(1), i(2)
+    }))
+})
+
+ls.add_snippets("tex", {
+    s("ttt", fmt([[
+        \texttt{{{1}}}{2}
+    ]], {
+        i(1), i(2)
+    }))
+})
+
+-- Math
+
+ls.add_snippets("tex", {
+    s("eqb", fmt([[
+        \begin{{equation}}
+            \fbox{{$
+                \displaystyle {1}
+            $}}
+        \end{{equation}} {2}
+    ]], {
+        i(1), i(2)
+    }))
 })
